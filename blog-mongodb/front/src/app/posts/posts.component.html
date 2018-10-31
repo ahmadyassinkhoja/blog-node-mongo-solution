@@ -1,0 +1,21 @@
+
+<form [formGroup]="postForm" (ngSubmit)="addPost(postForm, photo)" class="form-group" style=" padding: 10px;">
+  <h2 class="text-center"> Add New Post </h2> <br>
+
+  <b> Title: </b> <input type="text" formControlName="title" class="form-control" /> 
+  <p *ngIf="!title.valid && title.touched" class="alert-danger" style="padding: 10px; "> Title is not valid </p>
+
+  <b> Body:  </b> <textarea formControlName="body" class="form-control" rows="3" cols="5"></textarea> 
+  <p *ngIf="!body.valid && body.touched" class="alert-danger" style="padding: 10px;"> Body is not valid </p>
+
+  <input #photo type="file" class="form-control" />
+
+  <div class="row">
+    <div class="col-md-5"></div>
+    <button class="btn-primary btn" style="width: 20%; margin-top: 10px;">Submit</button>
+  </div>
+
+</form>
+
+
+<app-post *ngFor="let post of posts" [post]="post" (deleterequest)="deletePost($event)"></app-post>
