@@ -37,7 +37,7 @@ export class PostService {
           })
         };
     
-        const updateMovieUrl = `http://localhost:3000/updatePost/${post.id}`
+        const updateMovieUrl = `http://localhost:3000/updatePost/${post._id}`
     
         this.http.put(updateMovieUrl,post, httpOptions) .subscribe(data => {
           console.log(data);
@@ -55,7 +55,7 @@ export class PostService {
           })
         };
 
-        const deletePostUrl = `http://localhost:3000/deletePost/${post.id}`
+        const deletePostUrl = `http://localhost:3000/deletePost/${post._id}`
         this.http.delete(deletePostUrl, httpOptions) .subscribe(data => {
           console.log(data);
         });
